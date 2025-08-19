@@ -13,6 +13,8 @@ fn main() {
         .expect("Failed to read line");     // 行の読み込みに失敗しました
 
     println!("予想：{}", guess);
+    
+//数当てゲームで当てる数を生成
 
 
 }
