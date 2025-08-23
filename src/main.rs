@@ -1,3 +1,4 @@
+use core::num;
 use rand::Rng;
 use std::{cmp::Ordering, io};
 fn main() {
@@ -7,25 +8,35 @@ fn main() {
     let mut guess = String::new(); //変数guessを作成 mutがあるのは可変
 
     let apples = 5; // mutがないため不変
+    loop {
+        //入力を受け取る処理
+        io::stdin()
+            .read_line(&mut guess)
+            .expect("Failed to read line"); // 行の読み込みに失敗しました
 
-    //入力を受け取る処理
-    io::stdin()
-        .read_line(&mut guess)
-        .expect("Failed to read line"); // 行の読み込みに失敗しました
+        //変数guessを数値に変換
 
-    //変数guessを数値に変換
-    let guess: u32 = guess.trim().parse().expect("Please type a bumber!");
-    println!("予想：{}", guess);
+        let guess: u32 = match guess.trim().parse() {
+            Ok(num) => num,
+            Err(_) => continue,
+        };
+        println!("予想：{}", guess);
 
-    //数当てゲームで当てる数を生成
-    //乱数を生成
-    let select_number = rand::thread_rng().gen_range(1..101);
-    println!("The Seclet number:{}", select_number);
+        //数当てゲームで当てる数を生成
+        //乱数を生成
+        let select_number = rand::thread_rng().gen_range(1..101);
+        println!("The Seclet number:{}", select_number);
 
-    //数を比較
-    match guess.cmp(&select_number) {
-        Ordering::Less => println!("Too small!"),
-        Ordering::Equal => println!("Too match!"),
-        Ordering::Greater => println!("Too big!"),
+        //数を比較
+
+        println!("Please input your guess.");
+        match guess.cmp(&select_number) {
+            Ordering::Less => println!("Too small!"),
+            Ordering::Greater => println!("Too big!"),
+            Ordering::Equal => {
+                println!("Too match!");
+                break;
+            }
+        }
     }
 }
