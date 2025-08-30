@@ -40,6 +40,14 @@ fn main() {
 
     println!("複合型");
 
-    
+    let tup = (1,4.56,5);
+    let (x,y,z) = tup;
+    println!("{} {} {}",x,y,z);
 
+    println!();
+
+    println!("配列");
+
+    let a=[5;4];
+    println!("{}",a[3]);
 }
