@@ -50,4 +50,12 @@ fn main() {
 
     let a=[5;4];
     println!("{}",a[3]);
+
+    println!();
+
+    function();
+}
+
+fn function(){
+    println!("function!");
 }
