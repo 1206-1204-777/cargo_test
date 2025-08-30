@@ -24,12 +24,22 @@ fn main() {
     println!();
 
     //浮動小数点型
-    let x = 2.0;
+    let x = 2.546;
     println!("64bit {}",x);
-    let y:f32 = 3.0;
+    let y:f32 = 3.4;
     println!("32bit {}",y);
 
+    println!();
 
-    let sum =a + a;
+    println!("計算式");
+    //計算式
+    let sum =y + x;
     println!("{}",sum);
+    
+    println!();
+
+    println!("複合型");
+
+    
+
 }
