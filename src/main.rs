@@ -1,3 +1,4 @@
 fn main() {
-    println!("Hello, world!");
+    println!("制御フロー学習");
+    println!();
 }
